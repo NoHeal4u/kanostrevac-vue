@@ -14,6 +14,11 @@ export default class AuthService {
 		})
 	}	
 
+	setAxiosDefaultAuthorizationHeader(){
+		const TOKEN = window.localStorage.getItem('loginToken')
+		axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`
+	}
+
 	isAuthenticated(){
 		return !!window.localStorage.getItem('loginToken');
 	}
